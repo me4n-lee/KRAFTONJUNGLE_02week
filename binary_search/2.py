@@ -48,6 +48,8 @@ while start <= end:
     # elif total > m:
     #     start = mid + 1
 
+    #적어도 m이상이라는 조건을 만족하기 위한 알고리즘!
+    #왜 m 이상일까?
     if total >= m:
         result = mid
         start = mid + 1
@@ -68,7 +70,6 @@ print(result)
 
 #     elif n_list[mid] > target:
 #         end = mid -1
-
 
 # for i in range(n):
 #     k = n_list[i] - target#자르는 높이

@@ -4,10 +4,9 @@
 #key = 탐색하고싶은 값
 #start, end
 def binary(arr, key, start, end):
-
+    
     while start <= end:
         mid = (start + end) // 2
-        
         if arr[mid] == key:
             return mid
         

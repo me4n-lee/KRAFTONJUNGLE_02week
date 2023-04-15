@@ -25,10 +25,10 @@ result = 0
 # 출력은 그 작은것중 최대인것을 출력할예정
 while start <= end:
     mid = (start + end) // 2
-    # count = 1
-    # target = min(n_list)
-    count = 0
-    target = 0
+    # count = 0
+    # target = 0    
+    count = 1
+    target = min(n_list)
 
     for i in range(n):
         if n_list[i] - target >= mid:
