@@ -3,32 +3,28 @@
 #11053
 
 import sys
-input = sys.stdin.readline 
 
-a = int(input())
-a_list = list(map(int, input().split()))
+input = sys.stdin.readline
 
-print(a_list)
+n = int(input())
+arr = list(map(int, input().split()))
 
-start = 0
-end = len(a_list) - 1
+dp = [0] * n  # dp[i]는 i를 마지막으로 하는 가장 긴 증가하는 부분 수열의 길이
+length = 0  # 현재까지 가장 긴 증가하는 부분 수열의 길이
 
-while start <= end:
-    mid = (start + end) // 2
-    count = 1
-    max_count = a
+for i in range(n):
+    left, right = 0, length
 
-    if a_list[mid] > a_list[start]:
-        count += 1
-        start += 1
+    while left < right:
+        mid = (left + right) // 2
+        if dp[mid] < arr[i]:
+            left = mid + 1
+        else:
+            right = mid
 
-    if a_list[mid] > a_list[end]:
-        count += 1
-        end += 1     
+    dp[left] = arr[i]
 
-    if count > max_count:
-        max_count = count
+    if left == length:
+        length += 1
 
-print(max_count)
-        
-
+print(length)
