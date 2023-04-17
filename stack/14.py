@@ -28,3 +28,5 @@ for i in range(t):
     
     else:
         print("NO")
+
+#valid를 어떻게 생각해 냈는지? 아니면 다른 방법으로 풀수 있는지
