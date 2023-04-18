@@ -1,5 +1,10 @@
+#https://www.acmicpc.net/problem/1655
+#가운데를 말해요
+#1655
+
 import heapq
 import sys
+input =sys.stdin.readline
 
 n = int(input())
 
