@@ -1,24 +1,38 @@
-import heapq
 import sys
 
-n = int(input())
+input = sys.stdin.readline
 
-left_heap = []
-right_heap = []
+n = int(input())
+arrange = []
+for i in range(n):
+    x, r = map(int, input().split())
+
+    left = x - r
+    right = x + r
+
+    arrange.append([left, right])
+
+# Sort the list based on the left coordinate
+arrange.sort(key=lambda x: x[0])
+
+stack = set()
+cnt = 1
 
 for i in range(n):
-    a = int(input().strip())
+    left_now = arrange[i][0]
+    right_now = arrange[i][1]
 
-    if len(left_heap) == len(right_heap):
-        heapq.heappush(left_heap, -a)
+    # Check if left_now and right_now are in the stack
+    left_in_stack = left_now in stack
+    right_in_stack = right_now in stack
+
+    # If both left_now and right_now are in the stack
+    if left_in_stack and right_in_stack:
+        cnt += 2
     else:
-        heapq.heappush(right_heap, a)
+        cnt += 1
 
-    if right_heap and -left_heap[0] > right_heap[0]:
-        max_left = -heapq.heappop(left_heap)
-        min_right = heapq.heappop(right_heap)
+    stack.add(left_now)
+    stack.add(right_now)
 
-        heapq.heappush(left_heap, -min_right)
-        heapq.heappush(right_heap, max_left)
-
-    print(-left_heap[0])
+print(cnt)
