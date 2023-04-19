@@ -10,6 +10,7 @@ n_list = list(map(int, input().split()))
 
 stack = []
 result = []
+#스택에는 (인덱스, 높이) 형태의 튜플을 저장
 for i in range(n):
     while stack:
         if stack[-1][1] > n_list[i]:

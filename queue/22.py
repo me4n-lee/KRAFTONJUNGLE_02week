@@ -12,20 +12,23 @@ n_list = deque()
 for i in range(n):
     n_list.append(i+1)
 
-print(n_list)
+# print(n_list)
 result = []
 while len(n_list) > 0:
     for i in range(k-1):
         n_list.append(n_list.popleft())
     result.append(str(n_list.popleft()))
 
-    print(n_list)
-    print(result)
+    # print(n_list)
+    # print(result)
 
 print("<", end ="")
 
 for i in range(len(result)):
-    print(result[i] + ",", end ="")
+    if i == len(result) -1:
+        print(result[i], end="")
+    else:
+        print(result[i] + ",", end =" ")
     
 print(">", end ="")
         
