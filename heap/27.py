@@ -25,10 +25,19 @@ pq = []
 #start = h / end = o 값
 for i in range(n):
     start, end = n_list[i]
+
     if end - start <= d:
         heapq.heappush(pq, start)
+
     while pq and pq[0] < end - d:
         heapq.heappop(pq)
+
     count = max(count, len(pq))
 
 print(count)
+
+# for i in startend:
+#     if i[1] - i[0] <= d:
+#         abileroute.append(i)
+
+#

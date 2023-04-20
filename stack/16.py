@@ -14,6 +14,7 @@ result = []
 for i in range(n):
     while stack:
         if stack[-1][1] > n_list[i]:
+            # +1을 해주는 이유는 탑의 순서가 0부터가 아닌 1부터 이기 때문!
             result.append(stack[-1][0]+1)
             break
         else:

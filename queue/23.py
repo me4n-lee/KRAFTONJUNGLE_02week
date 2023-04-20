@@ -11,7 +11,7 @@ k = int(input()) #사과 개수
 k_list = deque() #사과의 위치
 for i in range(k):
     a, b = map(int, input().split())
-    k_list.append([b,a]) # 행, 열 일치를 시켜줘야하는데.. 아래 코드들이 열 행이다.
+    k_list.append([a,b]) # 행, 열 일치를 시켜줘야하는데.. 아래 코드들이 열 행이다.
 
 # print(k_list)
 
@@ -33,13 +33,16 @@ snake = deque([[1,1]])
 
 direction_idx = 0
 # 이동 방향 설정
-dx = [1, 0, -1, 0] # 우, 하, 좌, 상
-dy = [0, 1, 0, -1] # 우, 하, 좌, 상
+# dx = [1, 0, -1, 0] # 우, 하, 좌, 상
+# dy = [0, 1, 0, -1] # 우, 하, 좌, 상
+
+dx = [0, 1, 0, -1] # 하, 우, 상, 좌
+dy = [1, 0, -1, 0] # 하, 우, 상, 좌
 
 while True:
 
     time += 1
-    #뱀의 머리위치
+    #뱀의 머리위치        
     head_x, head_y = snake[-1] # 뱀의 머리위치!
 
     #뱀의 이동
